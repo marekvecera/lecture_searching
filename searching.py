@@ -18,9 +18,25 @@ def read_data(file_name, field):
 
     return data[field]
 
+
+def linear_search(seq, target_num):
+    output = {}
+    pocet = 0
+    indexes = []
+    for idx, item in enumerate(seq):
+        if item == target_num:
+            pocet += 1
+            indexes.append(idx)
+    output['positions'] = indexes
+    output['count'] = pocet
+
+    return  output
+
+
 def main():
     sequential_data = read_data("sequential.json", "unordered_numbers")
-    print(sequential_data)
+    hledani = linear_search(sequential_data, 9)
+    print(hledani)
 
 
 if __name__ == '__main__':
