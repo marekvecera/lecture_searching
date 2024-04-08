@@ -33,11 +33,22 @@ def linear_search(seq, target_num):
     return  output
 
 
+def pattern_search(seq, target_pattern):
+    output = []
+    for i in range(len(seq) - len(target_pattern) + 1):
+        if seq[i: i+len(target_pattern)] == target_pattern:
+            output.append(i)
+    return output
+
+
 def main():
     sequential_data = read_data("sequential.json", "unordered_numbers")
     hledani = linear_search(sequential_data, 9)
-    print(hledani)
+    # print(hledani)
 
+    dna_sequence = read_data("sequential.json", "dna_sequence")
+    hledani = pattern_search(dna_sequence, "ATA")
+    print(hledani)
 
 if __name__ == '__main__':
     main()
